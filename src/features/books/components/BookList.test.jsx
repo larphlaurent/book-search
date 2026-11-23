@@ -34,7 +34,7 @@ describe('BookList', () => {
     expect(screen.getByRole('heading', { name: 'Дюна' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'The Hobbit' })).toBeInTheDocument()
     expect(screen.getByText('Frank Herbert')).toBeInTheDocument()
-    expect(screen.getByText('Год: 1937')).toBeInTheDocument()
+    expect(screen.getByText('Год: 1999')).toBeInTheDocument()
   })
 
   it('передаёт выбранную книгу в onSelect', async () => {
