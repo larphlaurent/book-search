@@ -3,9 +3,6 @@ import { SearchBar } from '../features/search'
 import { BookDetails, BookList, Toast, useBookSearch } from '../features/books'
 
 function App() {
-  if (window.innerWidth > 100) {
-    useState('lint-error')
-  }
   const [query, setQuery] = useState('')
   const { status, results, error } = useBookSearch(query)
   const [selectedBook, setSelectedBook] = useState(null)
