@@ -1,0 +1,28 @@
+name: React CI
+
+on: [push, pull_request] # запуск при любом пуше и при создании/обновлении Pull Request
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest # используется виртуальная машина GitHub
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci # установка зависимостей строго по package-lock.json
+
+      - name: Run ESLint
+        run: npm run lint # выполнение скриптов из package.json
+
+      - name: Run tests
+        run: npm test # выполнение скриптов из package.json
+
+      - name: Build
+        run: npm run build
